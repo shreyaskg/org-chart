@@ -1,0 +1,13 @@
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <!-- We use a clean pattern so it only prints the exact message and a newline -->
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- Apply the clean STDOUT format to all logs at INFO level or higher -->
+  <root level="info">
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>
