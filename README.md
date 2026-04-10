@@ -7,11 +7,11 @@ It specifically evaluates three primary business rules:
 2. **Overpaid Managers:** Managers should earn *no more than 50% more* than the average salary of their direct subordinates.
 3. **Deep Hierarchies:** No employee should have more than 4 managers sequentially between themselves and the CEO.
 
-## 🚀 Prerequisites
-- **Java SE 17+** 
+## Prerequisites
+- **Java SE 25** 
 - **Maven 3.6+** 
 
-## 🛠️ How to Build and Run
+## How to Build and Run
 
 To compile the application, navigate to the root directory where this README lives and run normal Maven build commands:
 
@@ -28,7 +28,7 @@ mvn -q exec:java -Dexec.mainClass="com.bigcompany.Main" -Dexec.args="src/main/re
 ```
 *(If no argument is passed, the exact command falls back to gracefully looking for `src/main/resources/employees.csv` automatically!)*
 
-## 🧪 Running Tests
+## Running Tests
 
 The logic for tree-traversal and edge-case mathematics is rigorously automated through JUnit 5. You can execute the test suite via:
 
