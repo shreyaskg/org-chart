@@ -14,12 +14,24 @@ public class CsvParserService {
     
     public List<Employee> parseCsv(String filePath) throws IOException {
         Path path = Paths.get(filePath);
-        if (!Files.exists(path)) {
-            throw new IOException("File not found: " + filePath);
+        Stream<String> lines;
+
+        if (Files.exists(path)) {
+            lines = Files.lines(path);
+        } else {
+            java.io.InputStream is = getClass().getClassLoader().getResourceAsStream(filePath);
+            if (is == null) {
+                // Also try absolute slash in case it helps
+                is = getClass().getClassLoader().getResourceAsStream("/" + filePath);
+                if (is == null) {
+                    throw new IOException("File not found on filesystem or in classpath resources: " + filePath);
+                }
+            }
+            lines = new java.io.BufferedReader(new java.io.InputStreamReader(is)).lines();
         }
 
-        try (Stream<String> lines = Files.lines(path)) {
-            return lines.skip(1) // Skip the header line
+        try (Stream<String> stream = lines) {
+            return stream.skip(1) // Skip the header line
                     .filter(line -> line != null && !line.trim().isEmpty())
                     .map(this::parseLine)
                     .collect(Collectors.toList());

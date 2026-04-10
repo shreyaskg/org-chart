@@ -19,8 +19,8 @@ public class Main {
     public static void main(String[] args) {
         String filePath;
         if (args.length < 1) {
-            logger.warn("No CSV file path provided as an argument. Defaulting to 'src/main/resources/employees.csv'.");
-            filePath = "src/main/resources/employees.csv";
+            logger.warn("No CSV file path provided as an argument. Defaulting to 'employees.csv'.");
+            filePath = "employees.csv";
         } else {
             filePath = args[0];
         }

@@ -24,9 +24,9 @@ To run the application, simply pass a local CSV file to the compiled executable 
 *(Note: Use the `-q` flag for a quiet Maven output so you only see the clean structural report).*
 
 ```bash
-mvn -q exec:java -Dexec.mainClass="com.bigcompany.Main" -Dexec.args="src/main/resources/employees.csv"
+mvn -q exec:java -Dexec.mainClass="com.bigcompany.Main" -Dexec.args="employees.csv"
 ```
-*(If no argument is passed, the exact command falls back to gracefully looking for `src/main/resources/employees.csv` automatically!)*
+*(If no argument is passed, the exact command falls back to gracefully looking for `employees.csv` automatically!)*
 
 ## Running Tests
 
